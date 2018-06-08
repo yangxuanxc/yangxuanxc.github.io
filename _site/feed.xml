@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二胖的窝</title>
+    <description>一只程序猿和一只金融狗写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 14 Apr 2018 22:26:31 +0800</pubDate>
+    <lastBuildDate>Sat, 14 Apr 2018 22:26:31 +0800</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>一行python代码实现一个Http服务器，告别文件传输烦恼</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;如果你有一个文件需要在两台linux服务器上进行传输你会怎么办？&lt;/p&gt;
+
+  &lt;p&gt;如果你需要将linux服务器上的文件传给不会编程的产品经理，你又会怎么办？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;问题引入&quot;&gt;问题引入&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2018-04/python_http_server/1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;不知道大家有没有遇到过这样的问题：在实际的开发过程中，很多时候我们都不直接在本机上进行开发，一般都是在远程服务器上开发运行程序。比如二胖在实际开发中就会使用到很多台服务器，简单来说就是我有一台笔记本电脑，通过ssh连接着很多台服务器[如上图所示]，我需要经常在不同的服务器上进行开发，所以很多时候就会遇到需要在不同的计算机之间传输文件的情景。可以归纳为以下几个情景：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;个人电脑和个人电脑之间传递文件。&lt;/li&gt;
+  &lt;li&gt;服务器之间进行文件传递。&lt;/li&gt;
+  &lt;li&gt;服务器与个人电脑（笔记本）之间进行文件传递。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;解决办法&quot;&gt;解决办法？&lt;/h2&gt;
+
+&lt;p&gt;我们先来说说第一点，个人电脑和个人电脑之间是如何传递文件的。个人电脑的操作系统基本都是图形界面的操作系统，比如Windows操作系统和MacOs操作系统，最简单的办法呢就是打开电脑QQ或者电脑微信进行传递即可，是不是感觉二胖在说废话啊？嘿嘿，我感觉也是的，不过为了让文章更加完整，二胖还是提及一下。其实很多公司内部都有自己的即时聊天系统软件，一般不会用QQ和微信等第三方软件来进行数据传输，不过道里都是一样的。&lt;/p&gt;
+
+&lt;p&gt;好啦，现在来讨论第二点，服务器与服务器之间进行文件传递。我想大部分童鞋最长使用的是 scp 命令来进行文件传递的吧。&lt;/p&gt;
+
+&lt;h3 id=&quot;scp命令是什么&quot;&gt;scp命令是什么？&lt;/h3&gt;
+
+&lt;p&gt;简单来说，Linux scp命令就是用于Linux之间复制文件和目录。&lt;/p&gt;
+
+&lt;p&gt;scp是 secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的远程文件拷贝命令。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scp [可选参数] file_source file_target&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;因为今天主要讲的不是scp命令，在这里就不过多阐述了，想要了解的童鞋可以点击下面这个视频，二胖录了个小教程讲解scp命令的用法。&lt;/p&gt;
+
+&lt;iframe style=&quot;float:middle&quot; width=&quot;650&quot; height=&quot;400&quot; src=&quot;http://player.youku.com/embed/XMzUzNjQxNTQ0OA==&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;今天的重磅是服务器与个人电脑之间的文件传递，相信很多同学这时候迫不及待的说：“直接rz，sz命令不就得了吗，至于那么麻烦吗？”。确实，sz/rz命令是linux服务器与ssh客户端进行文件的交互的命令，也就是上传和下载文件到服务器和本地。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sz：将选定的文件发送（send）到本地机器&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rz：运行该命令会弹出一个文件选择窗口，从本地选择文件上传到服务器(receive)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;确实，这两个命令是可以实现服务器与个人电脑之间上传下载文件的，不过有两个问题，当文件十分大的时候，对于部分电脑而言，sz/rz就会失败。还有一个问题就是，我们需要把文件传递给其他人，而不是从服务器上下载文件到本地，这该怎么解决？&lt;/p&gt;
+
+&lt;p&gt;这两个命令也不细讲，对linux命令行不太熟悉的童鞋可以关注我，之后我会录制linux系统基本使用的教程，到时候大家可以详细了解。现在我们继续了解第三种情况下，怎么用一行代码来搭建一个http服务器实现文件传输。&lt;/p&gt;
+
+&lt;p&gt;Python2：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python -m SimpleHTTPServer prot&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Python3：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python3 -m http.server prot&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;下面就录制一个视频给大家讲讲。当然http服务如果只用来传文件就大材小用了，还可以用来作为一个web 服务器。&lt;/p&gt;
+
+&lt;iframe style=&quot;float:middle&quot; width=&quot;650&quot; height=&quot;400&quot; src=&quot;http://player.youku.com/embed/XMzUzNjQxNTQ0OA==&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;用一行命令就运行了这个http server了，赶快来制作你的第一个网站吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2018-04/python_http_server/2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;完&quot;&gt;完～&lt;/h2&gt;
+
+</description>
+        <pubDate>Thu, 12 Apr 2018 22:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/04/12/Python-Http-Server/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/04/12/Python-Http-Server/</guid>
+        
+        <category>Python小教程</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Hello World!</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;第一篇博客，向世界问好。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;还记得好几年前写的第一个程序，输出的就是&lt;strong&gt;Hello World&lt;/strong&gt;！&lt;/p&gt;
+
+&lt;p&gt;在这里，我也想用&lt;strong&gt;Hello，World&lt;/strong&gt;来发表我的第一篇博文~&lt;/p&gt;
+
+&lt;p&gt;嗯，为什么要做这个网站呢？其实也就是因为一件小事，前几天我在知乎和微信公众号同步发表了一篇文章《两行代码制作一个高逼格的二维码》，我制作了几个自认为比较好看的二维码，可是贴到知乎专栏文章之后，便被折叠了，所以这篇文章的阅读效果并不好，如下图。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2018-04/hello_world/1.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;微信公众号上虽然可以展示二维码，但是不能留下外链，我连留一个github地址也要小心翼翼，因为不知道什么时候因为什么原因可能就被封了。与其这样，那我就自己搭建一个网站来写字吧。至少，在这里，我不用担心二维码显示不出来，不用担心留下了什么东西违反了某某规则。&lt;/p&gt;
+
+&lt;p&gt;我并不是一个web工程师，我是写c++的后端程序员，所以建立网站并不是我擅长的，周末花了两天时间折腾了一下，看了好些资料，看了看开源代码，也算是折腾出来了，不过可能一开始用户体验并不是那么好，目前有些功能还没有开发来，但是呢，我相信，我会慢慢去搞定它，毕竟，我建立这个博客的目的也是为了和大家一同学习，一同进步，后面我也会花些时间学习一下web开发相关的知识，争取把这个网站做的更好一些~&lt;/p&gt;
+
+&lt;p&gt;对，我建立这个网站的目的就是为了分享，有关于编程、计算机相关技术、生活、金融、美食 and so on~&lt;/p&gt;
+
+&lt;p&gt;你能看到这篇文章，我很开心，我希望你也能有所幸福，让我们从现在开始出发吧~&lt;/p&gt;
+
+&lt;p&gt;—— 二胖 2018.04.02&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 Apr 2018 20:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/04/02/Hello-World/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/04/02/Hello-World/</guid>
+        
+        <category>生活</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
