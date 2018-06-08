@@ -6,7 +6,7 @@ email: yangxuanxc@126.com
 description: "一只程序猿和一只金融狗写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~"
 keyword: "大数据前沿, 大数据, 二胖, python, bigdataqianyan, 前沿, 编程, 教程, 博客, 个人网站, 互联网, Web, 计算机, 数据分析, 机器学习"
 url: "http://www.bigdataqianyan.com"              # your host, for absolute URL
-baseurl: "www.bigdataqianyan"         # for example, '/blog' if your blog hosted on 'host/blog'                             # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
