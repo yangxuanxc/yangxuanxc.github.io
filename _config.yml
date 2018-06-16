@@ -1,9 +1,9 @@
 # Site settings
-title: 二胖的窝
-SEOTitle: 二胖的窝 | Two Fat
+title: 大数据前沿
+SEOTitle: 大数据前沿 | Big Data
 header-img: img/home-bg.jpg
 email: yangxuanxc@126.com
-description: "一只程序猿和一只金融狗写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~"
+description: "一个90后大叔写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~"
 keyword: "大数据前沿, 大数据, 二胖, python, bigdataqianyan, 前沿, 编程, 教程, 博客, 个人网站, 互联网, Web, 计算机, 数据分析, 机器学习"
 url: "http://www.bigdataqianyan.com"              # your host, for absolute URL
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -25,7 +25,7 @@ github_username:    yangxuanxc
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
 permalink: pretty
-paginate: 10
+paginate: 10 #每一页的文章数量
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
@@ -67,8 +67,8 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "一个程序🐒和一只金融🐶，<br>写字的地方~"
-sidebar-avatar: /img/erpang.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "写一写我想写的东西，说一些我想说的话~"
+sidebar-avatar: /img/erpang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -90,7 +90,7 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "微信公众号",
-        href: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzAwNzAzNTMwMg=="
+        #title: "微信公众号",
+        #href: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzAwNzAzNTMwMg=="
     }
 ]
