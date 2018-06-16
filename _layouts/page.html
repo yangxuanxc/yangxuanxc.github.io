@@ -2,6 +2,7 @@
 layout: default
 ---
 
+<!-- 根目录下html页面的布局 -->
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
@@ -17,11 +18,11 @@ layout: default
     </div>
 </header>
 
-<!-- Main Content -->
+<!-- 侧边栏相关 -->
 <div class="container">
 	<div class="row">
         {% if site.sidebar == false %}
-<!-- NO SIDEBAR -->
+<!-- 不使用侧边栏 -->
     <!-- PostList Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
                 {{ content }}
@@ -100,7 +101,7 @@ layout: default
 
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
-                    <hr><h5><a href="{{'/1about/' | prepend: site.baseurl }}">关于我们</a></h5>
+                    <hr><h5><a href="{{'/1about/' | prepend: site.baseurl }}">About me</a></h5>
                     <div class="short-about">
                         {% if site.sidebar-avatar %}
                             <img src="{{site.sidebar-avatar}}" />
@@ -108,7 +109,7 @@ layout: default
                         {% if site.sidebar-about-description %}
                             <p>{{site.sidebar-about-description}}</p>
                         {% endif %}
-                        <!-- SNS Link -->
+                        <!-- 外部链接 Link -->
                         <ul class="list-inline">
                             {% if site.RSS %}
                             <li>
@@ -181,8 +182,11 @@ layout: default
                             </li>
                             {% endif %}
                         </ul>
+                        <h5>微信扫描关注微信公众号：</h5>
+                        <img src="{{ site.baseurl }}/img/wechat_qrcode.gif" />
                     </div>
                 </section>
+                
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
