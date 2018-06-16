@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="一只程序猿和一只金融狗写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~">
+    <meta name="description" content="一个90后大叔写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~">
     <meta name="keywords"  content="大数据前沿, 大数据, 二胖, python, bigdataqianyan, 前沿, 编程, 教程, 博客, 个人网站, 互联网, Web, 计算机, 数据分析, 机器学习">
     <meta name="theme-color" content="#000000">
     
-    <title>一行python代码实现一个Http服务器，告别文件传输烦恼 - 二胖的窝 | Two Fat</title>
+    <title>一行python代码实现一个Http服务器，告别文件传输烦恼 - 大数据前沿 | Big Data</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -36,7 +36,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-    <!-- Hux Delete, sad but pending in China
+    <!-- Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
@@ -58,7 +58,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
 
-    <!-- Navigation -->
+    <!-- Navigation头部导航图 -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,16 +69,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">二胖的窝</a>
+            <a class="navbar-brand" href="/">大数据前沿</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="huxblog_navbar">
+        <div id="blog_navbar">
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/">主页</a>
                     </li>
+                    <!--site.pages 在根目录下创建的html文件会在site.pages中-->
                     
                     <li>
                         <a href="/1about/">网站介绍</a>
@@ -109,7 +110,7 @@
     // in high-perf jank-free CSS3 implementation
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
+    var $navbar = document.querySelector('#blog_navbar');
     var $collapse = document.querySelector('.navbar-collapse');
 
     var __HuxNav__ = {
@@ -157,7 +158,8 @@
 </script>
 
 
-    <!-- Image to hack wechat -->
+    <!-- 文章发布页面模板-->
+<!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="/img/about-bg-walle.jpg" width="0" height="0"> -->
 
@@ -297,6 +299,10 @@
                 
 
                 
+                <!-- 网易云跟帖 评论框 start -->
+                <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+                <!-- 网易云跟帖 评论框 end -->
+                
             </div>  
 
     <!-- Side Catalog Container -->
@@ -343,7 +349,7 @@
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
                     
-                        <li><a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzAwNzAzNTMwMg==">微信公众号</a></li>
+                        <li><a href=""></a></li>
                     
                 </ul>
                 
@@ -353,6 +359,20 @@
 </article>
 
 
+
+<!-- 网易云跟帖JS代码 start -->
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "de25fc98a6fe48b3bc8a7ae765da99a0",
+    target: "cloud-tie-wrapper"
+  };
+  var yunManualLoad = true;
+  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
+<!-- 网易云跟帖JS代码 end -->
 
 
 
@@ -455,9 +475,10 @@
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; 二胖的窝 2018
+                    Copyright &copy; 大数据前沿 2018
                     <br>
-                    
+                    感谢@<a target="_blank" href="https://github.com/huxpro">@黄玄
+                        </a>贡献如此优秀的框架
                 </p>
             </div>
         </div>
