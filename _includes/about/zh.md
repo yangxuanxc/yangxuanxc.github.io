@@ -1,5 +1,5 @@
-> 一个程序🐒和一只金融🐶
-> 写字的地方
+> 只想找个地方
+> 写写东西
 
 Hello，我是二胖，欢迎你来到我的网站，很高兴遇见你。现在，就让我给你介绍一下我们的网站吧~
 
@@ -21,18 +21,4 @@ Hello，我是二胖，欢迎你来到我的网站，很高兴遇见你。现在
 
 好啦，就介绍到这里，欢迎关注我们的微信公众号和知乎，这个网站有更新我们都会在微信公众号和知乎同步推送，扫描下方二维码关注：
 
-<table>
-    <tr style="border:none">
-        <h2>微信公众号：</h2>
-    </tr>
-    <tr style="border:none">
-        <img width="300" src="{{ site.baseurl }}/img/wechat_qrcode.gif" alt="">
-    </tr>
-    <tr style="border:none">
-        <h2>知乎：</h2>
-    </tr>
-    <tr style="border:none">
-        <img width="300" src="{{ site.baseurl }}/img/zhihu_qrcode.gif" alt="">
-    </tr>
-
-</table>
+{% include wechat_qrcode.html %}

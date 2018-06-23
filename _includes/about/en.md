@@ -1,11 +1,11 @@
-> 一个程序🐒和一只金融🐶
-> 写字的地方
+> 只想找个地方
+> 写写东西
 
-Hello，我是二胖，欢迎你来到我们的小窝，很高兴遇见你。现在，就让我给你介绍一下我们的网站吧~
+Hello，我是二胖，欢迎你来到我的网站，很高兴遇见你。现在，就让我给你介绍一下我们的网站吧~
 
 ## 我们是谁？
 
-二胖的窝里一共有两个成员，分别是二胖和二胖并不胖。
+目前我们一共有两个成员，分别是二胖和二胖并不胖，也欢迎优秀的你加入我们。
 
 二胖———就是本程序🐒，职业是软件工程师，科班出身，目前就职于百度公司，主要从事Linux服务器C++开发，喜欢Python和数据分析，机器学习&数据挖掘入门级选手，也偶尔写一写Java和php，力推计算机专业课。周末常宅在家中，不玩游戏不看小说，最爱做菜，实打实的吃货一枚。长活跃于[知乎](https://www.zhihu.com/people/dcapi)，运营公众号[大数据前沿](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzAwNzAzNTMwMg==)。
 
@@ -21,18 +21,4 @@ Hello，我是二胖，欢迎你来到我们的小窝，很高兴遇见你。现
 
 好啦，就介绍到这里，欢迎关注我们的微信公众号和知乎，这个网站有更新我们都会在微信公众号和知乎同步推送，扫描下方二维码关注：
 
-<table>
-    <tr style="border:none">
-        <h2>微信公众号：</h2>
-    </tr>
-    <tr style="border:none">
-        <img width="300" src="{{ site.baseurl }}/img/wechat_qrcode.gif" alt="">
-    </tr>
-    <tr style="border:none">
-        <h2>知乎：</h2>
-    </tr>
-    <tr style="border:none">
-        <img width="300" src="{{ site.baseurl }}/img/zhihu_qrcode.gif" alt="">
-    </tr>
-
-</table>
+{% include wechat_qrcode.html %}

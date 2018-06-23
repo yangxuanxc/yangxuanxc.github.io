@@ -41,7 +41,9 @@ scp是 secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的�
 
 因为今天主要讲的不是scp命令，在这里就不过多阐述了，想要了解的童鞋可以点击下面这个视频，二胖录了个小教程讲解scp命令的用法。
 
-<iframe style="float:middle" width="650" height="400" src="http://player.youku.com/embed/XMzUzNjQxNTQ0OA==" frameborder="0" allowfullscreen></iframe>
+
+<iframe src="//player.bilibili.com/player.html?aid=25212023&cid=42747335&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 
 今天的重磅是服务器与个人电脑之间的文件传递，相信很多同学这时候迫不及待的说：“直接rz，sz命令不就得了吗，至于那么麻烦吗？”。确实，sz/rz命令是linux服务器与ssh客户端进行文件的交互的命令，也就是上传和下载文件到服务器和本地。
 

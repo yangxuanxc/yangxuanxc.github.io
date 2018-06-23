@@ -59,20 +59,5 @@ Hello，我是二胖，这里是二胖和二胖并不胖制作的教程，目前
     </li>
 
 </ul>
+{% include wechat_qrcode.html %}
 
-
-<table>
-    <tr style="border:none">
-        <h2>微信公众号：</h2>
-    </tr>
-    <tr style="border:none">
-        <img width="300" src="{{ site.baseurl }}/img/wechat_qrcode.gif" alt="">
-    </tr>
-    <tr style="border:none">
-        <h2>知乎：</h2>
-    </tr>
-    <tr style="border:none">
-        <img width="300" src="{{ site.baseurl }}/img/zhihu_qrcode.gif" alt="">
-    </tr>
-
-</table>
