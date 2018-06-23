@@ -5,8 +5,8 @@
     <description>一个90后大叔写字的地方，有关于编程，金融，数据，学习，工作，生活，有关于我，也有关于你~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 16 Jun 2018 22:35:43 +0800</pubDate>
-    <lastBuildDate>Sat, 16 Jun 2018 22:35:43 +0800</lastBuildDate>
+    <pubDate>Sat, 23 Jun 2018 21:17:11 +0800</pubDate>
+    <lastBuildDate>Sat, 23 Jun 2018 21:17:11 +0800</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -45,7 +45,7 @@
 
 &lt;p&gt;因为今天主要讲的不是scp命令，在这里就不过多阐述了，想要了解的童鞋可以点击下面这个视频，二胖录了个小教程讲解scp命令的用法。&lt;/p&gt;
 
-&lt;iframe style=&quot;float:middle&quot; width=&quot;650&quot; height=&quot;400&quot; src=&quot;http://player.youku.com/embed/XMzUzNjQxNTQ0OA==&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=25212023&amp;amp;cid=42747335&amp;amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
 
 &lt;p&gt;今天的重磅是服务器与个人电脑之间的文件传递，相信很多同学这时候迫不及待的说：“直接rz，sz命令不就得了吗，至于那么麻烦吗？”。确实，sz/rz命令是linux服务器与ssh客户端进行文件的交互的命令，也就是上传和下载文件到服务器和本地。&lt;/p&gt;
 
